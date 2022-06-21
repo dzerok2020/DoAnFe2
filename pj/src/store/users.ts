@@ -15,7 +15,7 @@ export const useUsersStore = defineStore({
     },
     setRoom: (state) => (room: number) => {
         state.room = room;
-    },
+    }
   },
   actions: {
     addUser(user: object) {

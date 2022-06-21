@@ -25,65 +25,70 @@ import HomeWolvesville from "@/components/organisms/HomeWolvesville.vue";
 import ProfileSeason from "@/components/organisms/ProfileSeason.vue";
 import HomeSeting from "@/components/organisms/HomeSeting.vue";
 import { defineComponent } from "vue";
-import {getAuth, onAuthStateChanged} from "firebase/auth";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { useUsersStore } from "@/store/users";
 import { database, onValue, push, ref } from "@/firebase";
-import {child, get, getDatabase, set} from "firebase/database";
+import { child, get, getDatabase, set } from "firebase/database";
 
 export default defineComponent({
   components: {
     AdRow,
     HomeWolvesville,
     ProfileSeason,
-    HomeSeting,
+    HomeSeting
   },
   data() {
     return {
       auth: getAuth(),
-      user: useUsersStore(),
+      user: useUsersStore()
     };
   },
   created() {
     window.addEventListener("beforeunload", this.deleteUserInRoom);
-    console.log('123')
+    console.log("123");
   },
   mounted() {
-    console.log('333')
+    console.log("333");
     // this.getMessage();
-    this.deleteUserInRoom()
+    this.deleteUserInRoom();
   },
   methods: {
     test() {
-      console.log('test1')
+      console.log("test1");
     },
     async deleteUserInRoom() {
-      console.log(this.auth.currentUser?.uid)
+      console.log(this.auth.currentUser?.uid);
       const dbRef = ref(getDatabase());
       const db = getDatabase();
-      get(child(dbRef, `play-${this.user.room}/${this.user.data.id}`)).then(async (snapshot) => {
-        if (snapshot.exists()) {
-          await set(ref(db, `play-${this.user.room}/${this.user.data.id}`), {});
-          return;
-        } else {
-          console.log("No data available");
-        }
-      }).catch((error) => {
-        console.error(error);
-      });
-      get(child(dbRef, `play-${this.user.room}`)).then(async (snapshot) => {
-        if (snapshot.exists()) {
-          if (snapshot.size == 2 && snapshot.child('message').exists()) {
-            await set(ref(db, `play-${this.user.room}`), {
-
-            });
+      get(child(dbRef, `play-${this.user.room}/${this.user.data.id}`))
+        .then(async (snapshot) => {
+          if (snapshot.exists()) {
+            await set(
+              ref(db, `play-${this.user.room}/${this.user.data.id}`),
+              {}
+            );
+            return;
+          } else {
+            console.log("No data available");
           }
-          return;
-        } else {
-          console.log("No data available");
-        }
-      }).catch((error) => {
-        console.error(error);
-      });
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+      get(child(dbRef, `play-${this.user.room}`))
+        .then(async (snapshot) => {
+          if (snapshot.exists()) {
+            if (snapshot.size == 2 && snapshot.child("message").exists()) {
+              await set(ref(db, `play-${this.user.room}`), {});
+            }
+            return;
+          } else {
+            console.log("No data available");
+          }
+        })
+        .catch((error) => {
+          console.error(error);
+        });
     }
 
     // getMessage() {
@@ -109,7 +114,7 @@ export default defineComponent({
     //     });
     //   }
     // },
-  },
+  }
 });
 </script>
 

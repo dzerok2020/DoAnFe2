@@ -6,7 +6,7 @@ import ChatApp from "@/views/ChatApp.vue";
 import LoginView from "@/views/LoginView.vue";
 import RegisterView from "@/views/RegisterView.vue";
 import AuthView from "@/views/AuthView.vue";
-import InventoryView from "@/views/InventoryView.vue"
+import { useUsersStore } from "@/store/users";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -23,11 +23,6 @@ const router = createRouter({
       path: "/",
       name: "play",
       component: PlayView,
-    },
-    {
-      path: "/",
-      name: "inventory",
-      component: InventoryView,
     },
     {
       path: "/loading",

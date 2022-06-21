@@ -1,7 +1,7 @@
 <template>
   <div :class="classes">
-    <ad-image :classes="classesImage" :src="src" :alt="alt" />
-    <ad-text tag="p" :class="classesText">
+    <ad-image :class="classesImage" :src="src" :alt="alt" />
+    <ad-text tag="span" :class="classesText">
       {{ label }}
     </ad-text>
   </div>
