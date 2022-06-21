@@ -13,12 +13,10 @@ import AdImage from "@/components/atoms/AdImage.vue";
 defineProps({
   srcUser: {
     type: String,
-    default: "",
     required: false,
   },
   srcRole: {
     type: String,
-    default: "",
     required: false,
   },
   classImgUser: {

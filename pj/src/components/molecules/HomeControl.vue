@@ -8,7 +8,6 @@
       PLAY
     </ad-button>
     <ad-button
-      @click="$router.push({ name: 'inventory' })"
       type="submit"
       class="bg-white text-lg px-8 py-2 font-semibold rounded-md"
     >
@@ -41,7 +40,8 @@ import {defineComponent} from "vue";
 import {database, onValue, push, ref} from "@/firebase";
 import {useUsersStore} from "@/store/users";
 import {child, get, getDatabase, set} from "firebase/database";
-
+import firebase from "firebase/compat";
+import Unsubscribe = firebase.Unsubscribe;
 
 export default defineComponent({
   components: {
@@ -58,26 +58,36 @@ export default defineComponent({
       const db = getDatabase();
       let a: boolean = false;
       const starCountRef = ref(db, `play-${this.room}`);
+
+      // while (!a) {
+      //   await onValue(starCountRef, async (snapshot) => {
+      //     if (snapshot.size < 4) {
+      //       console.log('slo')
+      //       a = true;
+      //       await set(ref(db, `play-${this.room}/${this.user.data.id}`), {
+      //         name: this.user.data.name,
+      //         email: this.user.data.email,
+      //         room: this.room,
+      //       });
+      //     } else {
+      //       this.room++;
+      //     }
+      //   });
+      // await console.log(a)
       const dbRef = ref(getDatabase());
       while (!a) {
         a = await get(child(dbRef, `play-${this.room}`))
             .then(async (snapshot) => {
               let a = 4;
-              if (snapshot.child('message')) {
-                push(ref(database, `play-${this.room}/message`), {
-                  username: this.user.data.name,
-                  system: " join.",
-                });
-                a++;
-              }
+              if (snapshot.child('message')) a++;
               if (snapshot.size < a) {
                 await set(ref(db, `play-${this.room}/${this.user.data.id}`), {
                   name: this.user.data.name,
                   email: this.user.data.email,
                   room: this.room,
-                  role: "",
                 });
                 this.user.room = this.room;
+                console.log('play:' + this.user.room)
                 await this.$router.push({name: 'play'})
                 return true;
               } else {

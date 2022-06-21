@@ -15,7 +15,8 @@ onAuthStateChanged(getAuth(), async (user) => {
     get(child(dbRef, `users/${user?.uid}`)).then((snapshot) => {
       if (snapshot.exists()) {
         userStore.addUser(snapshot.val());
-        // router.push({name: "home"});
+        console.log(snapshot.val());
+        router.push({name: "home"});
       } else {
         console.log("No data available");
       }

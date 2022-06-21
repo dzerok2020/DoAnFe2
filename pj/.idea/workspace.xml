@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="b0c7d30a-e6a6-4c35-911c-c916048b4c21" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="JavaScript File" />
+        <option value="TypeScript File" />
+        <option value="Vue Single File Component" />
+      </list>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="29JtNJRJinz8SBKEvkdrapTWAhU" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/dzerok/Desktop/Workplace/Learning/fe2/app-todo/todo-app-fe/src/assets/images&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/dzerok/Desktop/Workplace/Learning/fe2/app-todo/todo-app-fe/node_modules/prettier&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.nodejs&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/dzerok/Desktop/Workplace/Learning/fe2/app-todo/todo-app-fe/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/assets/images" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/components/organisms" />
+      <recent name="$PROJECT_DIR$/src/components/molecules" />
+      <recent name="$PROJECT_DIR$/src/assets" />
+      <recent name="$PROJECT_DIR$/src" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b0c7d30a-e6a6-4c35-911c-c916048b4c21" name="Changes" comment="" />
+      <created>1652842974872</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1652842974872</updated>
+      <workItem from="1652842976835" duration="9306000" />
+      <workItem from="1652854617229" duration="15789000" />
+      <workItem from="1652872532176" duration="26000" />
+      <workItem from="1652931554634" duration="396000" />
+      <workItem from="1653097160586" duration="824000" />
+      <workItem from="1654789457123" duration="876000" />
+      <workItem from="1654790462458" duration="12638000" />
+      <workItem from="1654803741630" duration="10899000" />
+      <workItem from="1654836711200" duration="2844000" />
+      <workItem from="1654856144492" duration="3949000" />
+      <workItem from="1654872926728" duration="16081000" />
+      <workItem from="1654895967022" duration="972000" />
+      <workItem from="1654917696422" duration="1786000" />
+      <workItem from="1654996430763" duration="48000" />
+      <workItem from="1655002670279" duration="27962000" />
+      <workItem from="1655051391643" duration="51000" />
+      <workItem from="1655052576367" duration="20232000" />
+      <workItem from="1655116848426" duration="6490000" />
+      <workItem from="1655193896041" duration="534000" />
+      <workItem from="1655194669799" duration="21388000" />
+      <workItem from="1655220042174" duration="22928000" />
+      <workItem from="1655261593653" duration="10263000" />
+      <workItem from="1655272765927" duration="6350000" />
+      <workItem from="1655280074628" duration="13791000" />
+      <workItem from="1655302248198" duration="5274000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>

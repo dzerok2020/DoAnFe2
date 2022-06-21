@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import { getDatabase, ref, push, onValue } from "firebase/database";
+import { getDatabase, ref, push, onValue, query, equalTo, orderByChild, onChildAdded, update, set, get  } from "firebase/database";
 import firebase from "firebase/compat";
 
 const firebaseConfig = {
@@ -19,27 +19,4 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const database = getDatabase(app);
-
-window.fbAsyncInit = function() {
-  FB.init({
-    appId      : '{your-app-id}',
-    cookie     : true,
-    xfbml      : true,
-    version    : '{api-version}'
-  });
-
-  FB.AppEvents.logPageView();
-
-};
-
-(function(d, s, id){
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) {return;}
-  js = d.createElement(s); js.id = id;
-  js.src = "https://connect.facebook.net/en_US/sdk.js";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
-
-
-
-export { database, analytics, app, firebase, ref, push, onValue };
+export { database, analytics, app, firebase, ref, push, onValue, query, equalTo, orderByChild, onChildAdded, update, set, get  };

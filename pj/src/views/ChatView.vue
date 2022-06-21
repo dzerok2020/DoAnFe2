@@ -5,10 +5,8 @@
         <div class="scroll overflow-scroll h-full">
           <ul class="break-all pl-2">
             <li v-for="msg in messages" :key="msg">
-              <span v-if="!msg.system">{{ msg.username }}: </span>
-              <span v-else>{{ msg.username }} </span>
+              <span>{{ msg.username }}: </span>
               <span>{{ msg.message }}</span>
-              <span class="text-pink-500">{{ msg.system }}</span>
             </li>
           </ul>
         </div>
@@ -49,7 +47,6 @@ import { useUsersStore } from "@/store/users";
 export interface ChatUser {
   username: string;
   message: string;
-  system: string;
 }
 
 export default defineComponent({
@@ -91,7 +88,7 @@ export default defineComponent({
       this.message = "";
     },
     getMessage() {
-      onValue(ref(database, `play-${this.user.room}/message`), (snapshot) => {
+      onValue(ref(database, `play-${this.user.room}/` + "message"), (snapshot) => {
         this.messages = [];
         snapshot.forEach((child) => {
           this.messages.push(child.val());

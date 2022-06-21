@@ -108,7 +108,7 @@
 import { defineComponent } from "vue";
 import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
 import { database, ref, push, onValue } from "@/firebase";
-import {set} from "firebase/database";
+import { set } from "firebase/database";
 
 export default defineComponent({
   data() {
@@ -117,9 +117,9 @@ export default defineComponent({
         name: "",
         email: "",
         password: "",
-        repassword: "",
+        repassword: ""
       },
-      error: "",
+      error: ""
     };
   },
   methods: {
@@ -139,7 +139,7 @@ export default defineComponent({
               id: data.user.uid,
               name: this.from.name,
               email: this.from.email,
-              token: '',
+              token: ""
             });
             this.$router.push({ name: "login" });
           })
@@ -147,8 +147,8 @@ export default defineComponent({
             this.error = error.message;
           });
       }
-    },
-  },
+    }
+  }
 });
 </script>
 
