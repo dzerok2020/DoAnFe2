@@ -1,9 +1,16 @@
 import { defineStore } from "pinia";
 
+type User = {
+  id: string;
+  name: string;
+  email: string;
+  token: string;
+}
+
 export const useUsersStore = defineStore({
   id: "users",
   state: () => ({
-    data: {},
+    data: {} as User,
     token: sessionStorage.getItem("TOKEN"),
     room: -1,
   }),
@@ -18,11 +25,11 @@ export const useUsersStore = defineStore({
     }
   },
   actions: {
-    addUser(user: object) {
+    addUser(user: User) {
       this.data = user;
     },
     logout() {
-      this.data = {};
+      this.data = {} as User;
       this.token = "";
       sessionStorage.removeItem("TOKEN");
     },

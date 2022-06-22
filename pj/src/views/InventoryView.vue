@@ -1,13 +1,14 @@
 <template>
-  <div class="w-screen h-screen bg-black/70 flex flex-col">
+  <div class="w-screen h-screen bg-black/70 flex flex-col bg-background-Play">
     <div class="top relative basis-1/12 text-white">
       <div
-        class="absolute top-4 back z-10 py-2 px-4 ml-4 bg-black/50 rounded-md text-white"
+        class="absolute top-2 back z-10 py-2 px-4 ml-4 bg-black/50 rounded-md text-white cursor-pointer"
+        @click="$router.push({ name: 'home'})"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 448 512"
-          class="h-7 w-7"
+          class="w-7 h-7 fill-white"
         >
           <!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
           <path
@@ -15,13 +16,15 @@
           />
         </svg>
       </div>
-      <home-seting
-        label-coin="685"
-        label-gem="0"
-        label-rose="87"
-        class="top-4"
-        name-router-settings="login"
-      />
+      <div class="mt-2">
+        <home-seting
+          label-coin="685"
+          label-gem="0"
+          label-rose="87"
+          class="top-4"
+          name-router-settings="login"
+        />
+      </div>
     </div>
     <div class="bottom pt-2 pb-1 px-6 basis-11/12 bg-cyan-500">
       <div class="flex flex-row h-full">
@@ -38,7 +41,7 @@
                     class="hair absolute bottom-15 left-1/2 transform -translate-x-1/2 z-20"
                   >
                     <ad-image
-                        class="scale-150"
+                      class="scale-150"
                       src="https://cdn.wolvesville.com/avatarItems/hair-2.avatar-large@2x.png"
                     />
                   </div>
@@ -70,7 +73,7 @@
                     class="clothes absolute bottom-4 left-1/2 transform -translate-x-1/2 z-10"
                   >
                     <ad-image
-                        class="scale-150"
+                      class="scale-150"
                       src="https://cdn.wolvesville.com/avatarItems/clothes-77.avatar-large@2x.png"
                     />
                   </div>
@@ -81,6 +84,11 @@
                       class="w-20 scale-150"
                       src="https://cdn.wolvesville.com/avatarItems/body-skin-2.avatar-large@2x.png"
                     />
+                  </div>
+                  <div class="hat absolute bottom-12 left-1/2 transform -translate-x-1/2 z-20">
+                    <ad-image
+                        class="scale-125"
+                        src="https://cdn.wolvesville.com/avatarItems/hat-1.avatar-large@2x.png" />
                   </div>
                 </div>
               </div>
@@ -102,53 +110,51 @@
                             :key="i"
                             class="basis-25/2 bg-sky-500/50 bg-background-Home bg-cover bg-no-repeat border-2 border-sky-900 rounded-md text-white h-20 w-28 relative"
                           >
-                            <div
-                                class="relative h-full w-full"
-                            >
+                            <div class="relative h-full w-full">
                               <div
-                                  class="hair absolute bottom-4.5 left-1/2 transform -translate-x-1/2 z-20"
+                                class="hair absolute bottom-4.5 left-1/2 transform -translate-x-1/2 z-20"
                               >
                                 <ad-image
-                                    class="w-10"
-                                    src="https://cdn.wolvesville.com/avatarItems/hair-2.avatar-large@2x.png"
+                                  class="w-10"
+                                  src="https://cdn.wolvesville.com/avatarItems/hair-2.avatar-large@2x.png"
                                 />
                               </div>
                               <div
-                                  class="eyes absolute bottom-5.5 left-1/2 transform -translate-x-1/2 z-20"
+                                class="eyes absolute bottom-5.5 left-1/2 transform -translate-x-1/2 z-20"
                               >
                                 <ad-image
-                                    class="w-5"
-                                    src="https://cdn.wolvesville.com/avatarItems/eyes-standard.avatar-large@2x.png"
+                                  class="w-5"
+                                  src="https://cdn.wolvesville.com/avatarItems/eyes-standard.avatar-large@2x.png"
                                 />
                               </div>
                               <div
-                                  class="mouth absolute bottom-5.5 left-1/2 transform -translate-x-1/2 z-20"
+                                class="mouth absolute bottom-5.5 left-1/2 transform -translate-x-1/2 z-20"
                               >
                                 <ad-image
-                                    class="w-2"
-                                    src="https://cdn.wolvesville.com/avatarItems/mouth-skin-2.avatar-large@2x.png"
+                                  class="w-2"
+                                  src="https://cdn.wolvesville.com/avatarItems/mouth-skin-2.avatar-large@2x.png"
                                 />
                               </div>
                               <div
-                                  class="head absolute bottom-5.5 left-1/2 transform -translate-x-1/2 z-10"
+                                class="head absolute bottom-5.5 left-1/2 transform -translate-x-1/2 z-10"
                               >
                                 <ad-image
-                                    class="w-8"
-                                    src="https://cdn.wolvesville.com/avatarItems/head-skin-2.avatar-large@2x.png"
+                                  class="w-8"
+                                  src="https://cdn.wolvesville.com/avatarItems/head-skin-2.avatar-large@2x.png"
                                 />
                               </div>
                               <div
-                                  class="clothes absolute bottom-1 left-1/2 transform -translate-x-1/2 z-10"
+                                class="clothes absolute bottom-1 left-1/2 transform -translate-x-1/2 z-10"
                               >
                                 <ad-image
-                                    src="https://cdn.wolvesville.com/avatarItems/clothes-77.avatar-large@2x.png"
+                                  src="https://cdn.wolvesville.com/avatarItems/clothes-77.avatar-large@2x.png"
                                 />
                               </div>
                               <div
-                                  class="body absolute bottom-1 left-1/2 transform -translate-x-1/2 z-0"
+                                class="body absolute bottom-1 left-1/2 transform -translate-x-1/2 z-0"
                               >
                                 <ad-image
-                                    src="https://cdn.wolvesville.com/avatarItems/body-skin-2.avatar-large@2x.png"
+                                  src="https://cdn.wolvesville.com/avatarItems/body-skin-2.avatar-large@2x.png"
                                 />
                               </div>
                             </div>

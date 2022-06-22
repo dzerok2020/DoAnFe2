@@ -5,7 +5,6 @@
     :placeholder="placeholder"
     :class="classes"
     :value="modelValue"
-    @input="$emit('update:modelValue', $event.target.value)"
   />
 </template>
 

@@ -6,12 +6,6 @@
     :placeholder="placeholder"
     :class="classes"
     :value="modelValue"
-    @input="
-      $emit(
-        'update:modelValue',
-        type === 'checked' ? $event.target.checked : $event.target.value
-      )
-    "
   />
 </template>
 

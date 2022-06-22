@@ -4,7 +4,6 @@
     :name="name"
     :class="classes"
     :value="modelValue"
-    @input="$emit('update:modelValue', $event.target.value)"
   >
     <option
       v-for="option in options"

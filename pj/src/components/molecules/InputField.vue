@@ -4,10 +4,8 @@
     :type="type"
     :id="id"
     :name="name"
-    :placeholder="getPlaceholderProp"
     :class="classes"
     :value="modelValue"
-    @input="$emit('update:modelValue', $event.target.value)"
   />
 </template>
 
@@ -62,7 +60,7 @@ const props = defineProps({
   },
 });
 
-const getPlaceholderProp = computed(() =>
-  props.type !== "checkbox" && props.type !== "radio" ? props.placeholder : null
-);
+// const getPlaceholderProp = computed(() =>
+//   props.type !== "checkbox" && props.type !== "radio" ? props.placeholder : null
+// );
 </script>

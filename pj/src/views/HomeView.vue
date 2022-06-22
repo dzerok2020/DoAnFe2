@@ -30,6 +30,7 @@ import { useUsersStore } from "@/store/users";
 import { database, onValue, push, ref } from "@/firebase";
 import { child, get, getDatabase, set } from "firebase/database";
 
+
 export default defineComponent({
   components: {
     AdRow,
@@ -40,7 +41,7 @@ export default defineComponent({
   data() {
     return {
       auth: getAuth(),
-      user: useUsersStore()
+      user: useUsersStore(),
     };
   },
   created() {
