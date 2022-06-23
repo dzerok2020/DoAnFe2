@@ -1,7 +1,9 @@
 {
   "extends": "@vue/tsconfig/tsconfig.web.json",
-  "include": ["env.d.ts", "src/**/*", "src/**/*.vue"],
+  "include": ["env.d.ts", "src/**/*", "src/**/**/*.vue", "src/**/*.vue", "src/**/*.ts"],
   "compilerOptions": {
+    "allowJs": true,
+    "outDir": "./built",
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]

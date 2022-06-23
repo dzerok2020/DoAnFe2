@@ -1,12 +1,11 @@
 <template>
-  <ad-input
-    type="checkbox"
-    :id="id"
-    :name="name"
-    :class="classes"
-    :value="modelValue"
-    @input="$emit('update:modelValue', $event.target.checked)"
-  />
+<!--  <ad-input-->
+<!--    type="checkbox"-->
+<!--    :id="id"-->
+<!--    :name="name"-->
+<!--    :class="classes"-->
+<!--    :value="modelValue"-->
+<!--  />-->
   <ad-text tag="label" class="ml-label" :for="id">{{ label }}</ad-text>
 </template>
 

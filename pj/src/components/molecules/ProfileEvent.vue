@@ -78,6 +78,7 @@ import AdImage from "@/components/atoms/AdImage.vue";
 defineProps({
   src: {
     type: String,
+    default: "",
     required: false,
   },
   classesAvatar: {

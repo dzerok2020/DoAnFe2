@@ -1,14 +1,13 @@
 <template>
   <div class="ml-textarea-field">
     <ad-text tag="label" class="ml-label" :for="id">{{ label }}</ad-text>
-    <ad-select
-      :id="id"
-      :name="name"
-      :class="classes"
-      :options="options"
-      :value="modelValue"
-      @input="$emit('update:modelValue', $event.target.value)"
-    />
+<!--    <ad-select-->
+<!--      :id="id"-->
+<!--      :name="name"-->
+<!--      :class="classes"-->
+<!--      :options="options"-->
+<!--      :value="modelValue"-->
+<!--    />-->
   </div>
 </template>
 
