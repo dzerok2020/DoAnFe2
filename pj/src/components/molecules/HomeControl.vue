@@ -15,7 +15,7 @@
       INVENTORY
     </ad-button>
     <ad-button
-        @click="$router.push({ name: 'inventory'})"
+        @click="$router.push({ name: 'shop'})"
         type="submit"
         class="bg-white px-8 py-2 font-semibold rounded-md"
     >

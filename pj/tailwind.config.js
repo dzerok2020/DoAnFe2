@@ -36,6 +36,7 @@ module.exports = {
             "url('https://cdn.wolvesville.com/backgrounds/wolvesville_small_day@3x.png')",
       },
       spacing: {
+        "fix-shop": "2.05rem",
         "2.5": "0.55rem",
         "9": "2.25rem",
         "18": "4.5rem",
@@ -46,6 +47,8 @@ module.exports = {
         "1/35": "calc(33.333333% - 1rem)",
       },
       inset: {
+        "fix-shop": "0.6rem",
+        "a20": "-5rem",
         "2.5": "0.65rem",
         "3.5": "0.85rem",
         "4.5": "1.15rem",
@@ -53,6 +56,12 @@ module.exports = {
         "10": "2.5rem",
         "15": "3.75rem",
         "18": "4.5rem",
+      },
+      colors: {
+        'shop': '#FF3A81',
+      },
+      zIndex: {
+        '1': '1',
       },
     },
   },

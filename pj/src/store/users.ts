@@ -4,6 +4,9 @@ type User = {
   id: string;
   name: string;
   email: string;
+  coin: string;
+  gem: string;
+  flower: string;
   token: string;
 }
 
