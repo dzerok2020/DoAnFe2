@@ -5,7 +5,8 @@ import ChatApp from "@/views/ChatApp.vue";
 import LoginView from "@/views/LoginView.vue";
 import RegisterView from "@/views/RegisterView.vue";
 import AuthView from "@/views/AuthView.vue";
-import InventoryView from "@/views/InventoryView.vue"
+import ShopView from "@/views/ShopView.vue";
+import InventoryView from "@/views/InventoryView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -27,6 +28,11 @@ const router = createRouter({
       path: "/",
       name: "inventory",
       component: InventoryView,
+    },
+    {
+      path: "/",
+      name: "shop",
+      component: ShopView,
     },
     {
       path: "/chat",

@@ -3,7 +3,7 @@
     <div class="top relative basis-1/12 text-white">
       <div
         class="absolute top-2 back z-10 py-2 px-4 ml-4 bg-black/50 rounded-md text-white cursor-pointer"
-        @click="$router.push({ name: 'home'})"
+        @click="$router.push({ name: 'home' })"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -18,9 +18,9 @@
       </div>
       <div class="mt-2">
         <home-seting
-          label-coin="685"
-          label-gem="0"
-          label-rose="87"
+          :label-coin="user.data.coin"
+          :label-gem="user.data.gem"
+          :label-rose="user.data.flower"
           class="top-4"
           name-router-settings="login"
         />
@@ -85,10 +85,13 @@
                       src="https://cdn.wolvesville.com/avatarItems/body-skin-2.avatar-large@2x.png"
                     />
                   </div>
-                  <div class="hat absolute bottom-12 left-1/2 transform -translate-x-1/2 z-20">
+                  <div
+                    class="hat absolute bottom-12 left-1/2 transform -translate-x-1/2 z-20"
+                  >
                     <ad-image
-                        class="scale-125"
-                        src="https://cdn.wolvesville.com/avatarItems/hat-1.avatar-large@2x.png" />
+                      class="scale-125"
+                      src="https://cdn.wolvesville.com/avatarItems/hat-1.avatar-large@2x.png"
+                    />
                   </div>
                 </div>
               </div>
@@ -213,6 +216,12 @@
                       </div>
                     </div>
                     <div
+                      v-for="i in hats.data"
+                      class="basis-25/2 bg-gray-400/50 border-2 border-sky-900 rounded-md p-4"
+                    >
+                      <ad-image classes="h-12 mx-auto" :src="i.img" />
+                    </div>
+                    <div
                       class="basis-25/2 bg-gray-400/50 border-2 border-sky-900 rounded-md p-4"
                     >
                       <ad-image
@@ -234,7 +243,6 @@
                         classes-image="w-3 inline-block ml-1"
                         src="https://www.wolvesville.com/static/media/gem.439d7650.png"
                         alt="gem"
-                        @click="$router.push({ name: nameRouterShop })"
                       />
                     </div>
                     <div
@@ -253,7 +261,6 @@
                         classes-image="w-3 inline-block ml-1"
                         src="https://www.wolvesville.com/static/media/gem.439d7650.png"
                         alt="gem"
-                        @click="$router.push({ name: nameRouterShop })"
                       />
                     </div>
                   </div>
@@ -272,6 +279,30 @@ import HomeSeting from "@/components/organisms/HomeSeting.vue";
 import AdImage from "@/components/atoms/AdImage.vue";
 import AdText from "@/components/atoms/AdText.vue";
 import TextImage from "@/components/molecules/TextImage.vue";
+import { useUsersStore } from "@/store/users";
+import { child, get, getDatabase } from "firebase/database";
+import { ref1 } from "@/import";
+import { reactive } from "vue";
+
+type Hat = {
+  id: string;
+  img: string;
+};
+const user = useUsersStore();
+const hats = reactive({ data: [] as Hat[] });
+
+const dbRef = ref1(getDatabase());
+get(child(dbRef, `inventories/${user.data.id}/hats`))
+  .then((snapshot) => {
+    if (snapshot.exists()) {
+      hats.data = snapshot.val() as Hat[];
+    } else {
+      console.log("No data available");
+    }
+  })
+  .catch((error) => {
+    console.error(error);
+  });
 </script>
 
 <style scoped></style>

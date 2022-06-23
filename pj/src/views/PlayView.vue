@@ -138,8 +138,11 @@ type User = {
   id: string;
   name: string;
   email: string;
-  token: string;
   role: string;
+  coin: string;
+  gem: string;
+  flower: string;
+  token: string;
 }
 
 export interface time {
@@ -157,7 +160,7 @@ export default defineComponent({
   data() {
     return {
       user: useUsersStore(),
-      users: [{}],
+      users: [{}] as User[],
       roles: useRolesStore(),
       slots: [0, 1, 2, 3],
       time: {

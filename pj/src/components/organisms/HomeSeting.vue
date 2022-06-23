@@ -31,8 +31,14 @@ const closeFr = ref(false);
 const keyWord = ref("");
 const arrFriends = ref([]);
 
+type User = {
+  id: string;
+  name: string;
+  email: string;
+  token: string;
+}
 const reactiveUser = reactive({
-  data: <string[]>[]
+  data: [] as User[],
 });
 
 let auth: Auth;
@@ -141,7 +147,7 @@ function searchKey() {
 // }
 const arr = [];
 
-function addFriend(data) {
+function addFriend(data: User) {
   //id người kết bạn
   // console.log(data);
 
@@ -199,7 +205,7 @@ function addFriend(data) {
 </script>
 
 <template>
-  <div class="bg_fullsize" v-if="friendSearch" @click="getAllFriend">
+  <div class="bg_fullsize" v-if="friendSearch">
     <div class="box-friend" :class="{ 'close-box-fiend': closeFr }">
       <div class="box-bg-friend">
         <v-icon

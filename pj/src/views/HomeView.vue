@@ -1,13 +1,14 @@
 <template>
   <div id="main" class="bg-sky-500/50 h-screen text-white">
     <div class="bg-background-Home h-full">
-      <home-seting
-        label-coin="685"
-        label-gem="0"
-        label-rose="87"
-        class="pt-3"
-        name-router-settings="login"
-      />
+      <div class="pt-2">
+        <home-seting
+            :label-coin="user.data.coin"
+            :label-gem="user.data.gem"
+            :label-rose="user.data.flower"
+            name-router-settings="login"
+        />
+      </div>
       <profile-season :name="user.data.name" />
       <ad-row co-ls="3" class="h-full text-black">
         <ad-row>

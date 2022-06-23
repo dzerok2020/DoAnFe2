@@ -1,32 +1,27 @@
 <template>
-  <ad-row coLs="3" classes="h-1">
-    <ad-row>
-      <text-image
+  <div class="flex flex-col-3">
+    <text-image
         classes-image="w-5 inline-block ml-1"
         :label="labelCoin"
         src="https://www.wolvesville.com/static/media/silver_coin.7b125383.png"
         alt="silver_coin"
         @click="$router.push({ name: nameRouterShop })"
-      />
-    </ad-row>
-    <ad-row class="justify-self-end">
-      <text-image
+    />
+    <text-image
+        class="mx-4"
         classes-image="w-3 inline-block ml-1"
         :label="labelRose"
         src="https://www.wolvesville.com/static/media/rose_inventory_single.eb6af861.png"
         alt="rose_inventory_single"
-      />
-    </ad-row>
-    <ad-row class="justify-self-end">
-      <text-image
+    />
+    <text-image
         :label="labelGem"
         classes-image="w-5 inline-block ml-1"
         src="https://www.wolvesville.com/static/media/gem.439d7650.png"
         alt="gem"
         @click="$router.push({ name: nameRouterShop })"
-      />
-    </ad-row>
-  </ad-row>
+    />
+  </div>
 </template>
 
 <script lang="ts" setup>

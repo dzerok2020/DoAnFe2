@@ -2,8 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b0c7d30a-e6a6-4c35-911c-c916048b4c21" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/assets/images/banner_middle_plain.40e39f5b.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/ShopView.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/molecules/CoinRoseGem.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/molecules/CoinRoseGem.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/molecules/HomeControl.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/molecules/HomeControl.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/organisms/HomeSeting.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/organisms/HomeSeting.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/router/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/users.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/users.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/HomeView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/HomeView.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/InventoryView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/InventoryView.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/LoginView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/LoginView.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/PlayView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/PlayView.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +49,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "dart.analysis.tool.window.visible": "false",
-    "last_opened_file_path": "/Users/dzerok/Desktop/Workplace/Learning/fe2/project/fe2/pj/src/views",
+    "last_opened_file_path": "/Users/dzerok/Desktop/Workplace/Learning/fe2/project/fe2/pj/src/assets/images",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -52,9 +63,9 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/assets/images" />
       <recent name="$PROJECT_DIR$/src/views" />
       <recent name="$PROJECT_DIR$/src/store" />
-      <recent name="$PROJECT_DIR$/src/assets/images" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/components/organisms" />
@@ -99,7 +110,7 @@
       <workItem from="1655860235418" duration="7052000" />
       <workItem from="1655867367295" duration="345000" />
       <workItem from="1655920789043" duration="161000" />
-      <workItem from="1655951158589" duration="1653000" />
+      <workItem from="1655951158589" duration="33013000" />
     </task>
     <servers />
   </component>
