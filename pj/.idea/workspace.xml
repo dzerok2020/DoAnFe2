@@ -2,30 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b0c7d30a-e6a6-4c35-911c-c916048b4c21" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/store/roles.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/InventoryView.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/atoms/AdInput.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/atoms/AdInput.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/atoms/AdSelect.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/atoms/AdSelect.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/atoms/AdTextarea.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/atoms/AdTextarea.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/molecules/CheckBoxField.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/molecules/CheckBoxField.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/molecules/HomeControl.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/molecules/HomeControl.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/molecules/InputField.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/molecules/InputField.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/molecules/PlayUser.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/molecules/PlayUser.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/molecules/ProfileEvent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/molecules/ProfileEvent.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/molecules/SelectField.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/molecules/SelectField.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/molecules/TextareaField.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/molecules/TextareaField.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/firebase.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/firebase.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/router/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/users.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/users.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/ChatView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/ChatView.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/HomeView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/HomeView.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/LoginView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/LoginView.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/PlayView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/PlayView.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +45,7 @@
     "nodejs_package_manager_path": "npm",
     "prettierjs.PrettierConfiguration.Package": "/Users/dzerok/Desktop/Workplace/Learning/fe2/app-todo/todo-app-fe/node_modules/prettier",
     "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "settings.nodejs",
+    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.Color Scheme Font",
     "ts.external.directory.path": "/Users/dzerok/Desktop/Workplace/Learning/fe2/project/fe2/pj/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   }
@@ -118,7 +96,10 @@
       <workItem from="1655272765927" duration="6350000" />
       <workItem from="1655280074628" duration="13791000" />
       <workItem from="1655302248198" duration="5274000" />
-      <workItem from="1655860235418" duration="6819000" />
+      <workItem from="1655860235418" duration="7052000" />
+      <workItem from="1655867367295" duration="345000" />
+      <workItem from="1655920789043" duration="161000" />
+      <workItem from="1655951158589" duration="1653000" />
     </task>
     <servers />
   </component>

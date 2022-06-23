@@ -139,12 +139,11 @@ import {
   signInWithEmailAndPassword,
   GoogleAuthProvider,
   signInWithPopup,
+  FacebookAuthProvider,
 } from "firebase/auth";
 import { useUsersStore } from "@/store/users";
 import { set } from "firebase/database";
 import { database, ref } from "@/firebase";
-import firebase from "firebase/compat";
-import FacebookAuthProvider = firebase.auth.FacebookAuthProvider;
 
 export default defineComponent({
   components: {
@@ -164,29 +163,35 @@ export default defineComponent({
   methods: {
     facebookSignIn() {
       const provider = new FacebookAuthProvider();
-      provider.addScope("email");
+      // provider.addScope('user_birthday');
       const auth = getAuth();
       auth.languageCode = 'vi';
       // provider.setCustomParameters({
       //   'display': 'popup'
       // });
       signInWithPopup(auth, provider)
-          .then((result) => {
+          .then(async (result) => {
             // The signed-in user info.
             const user = result.user;
 
             // This gives you a Facebook Access Token. You can use it to access the Facebook API.
             const credential = FacebookAuthProvider.credentialFromResult(result);
-            const accessToken = credential.accessToken;
-
-            // ...
-            this.user.setTokens(accessToken);
-            set(ref(database, `users/${user.uid}`), {
+            const accessToken = credential!.accessToken;
+            // The signed-in user info.
+            await set(ref(database, `users/${user.uid}`), {
               id: user.uid,
               name: user.displayName,
               email: user.email,
               token: accessToken,
             });
+            // ...
+            this.user.data = {
+              id: user.uid,
+              name: user.displayName!,
+              email: user.email!,
+              token: accessToken!,
+            };
+            await this.$router.push({ name: "home" });
           })
           .catch((error) => {
             // Handle Errors here.
@@ -199,7 +204,6 @@ export default defineComponent({
 
             // ...
           });
-
     },
     googleSignIn() {
       const provider = new GoogleAuthProvider();
@@ -213,18 +217,24 @@ export default defineComponent({
           .then(async (result) => {
             // This gives you a Google Access Token. You can use it to access the Google API.
             const credential = GoogleAuthProvider.credentialFromResult(result);
-            const token = credential.accessToken;
+            const token = credential!.accessToken;
             // The signed-in user info.
             const user = result.user;
             console.log(user);
-            this.user.setTokens(token);
-            set(ref(database, `users/${user.uid}`), {
+            this.user.setTokens(token!);
+            await set(ref(database, `users/${user.uid}`), {
               id: user.uid,
               name: user.displayName,
               email: user.email,
               token: token,
             });
             // ...
+            this.user.data = {
+              id: user.uid,
+              name: user.displayName!,
+              email: user.email!,
+              token: token!,
+            };
             await this.$router.push({ name: "home" });
           })
           .catch((error) => {
