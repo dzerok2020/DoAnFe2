@@ -9,6 +9,7 @@ export const useUsersStore = defineStore({
   }),
   getters: {
     getUser: (state) => state,
+    getUserInfor: state => state.data,
     setTokens: (state) => (token: string) => {
       state.token = token;
       sessionStorage.setItem("TOKEN", token);

@@ -36,21 +36,24 @@ import AdRow from "@/components/atoms/AdRow.vue";
 defineProps({
   labelCoin: {
     type: String,
-    required: true,
+    default: "",
+    required: true
   },
   labelRose: {
     type: String,
-    required: true,
+    default: "",
+    required: true
   },
   labelGem: {
     type: String,
-    required: true,
+    default: "",
+    required: true
   },
   nameRouterShop: {
     type: String,
     default: "home",
-    required: false,
-  },
+    required: false
+  }
 });
 </script>
 
