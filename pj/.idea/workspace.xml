@@ -2,19 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b0c7d30a-e6a6-4c35-911c-c916048b4c21" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/assets/images/banner_middle_plain.40e39f5b.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/ShopView.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/molecules/CoinRoseGem.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/molecules/CoinRoseGem.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/molecules/HomeControl.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/molecules/HomeControl.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/organisms/HomeSeting.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/organisms/HomeSeting.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/router/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/organisms/ProfileSeason.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/organisms/ProfileSeason.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/users.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/users.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/HomeView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/HomeView.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/InventoryView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/InventoryView.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/LoginView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/LoginView.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/PlayView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/PlayView.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/RegisterView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/RegisterView.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/ShopView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/ShopView.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,24 +39,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "dart.analysis.tool.window.visible": "false",
-    "last_opened_file_path": "/Users/dzerok/Desktop/Workplace/Learning/fe2/project/fe2/pj/src/assets/images",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "prettierjs.PrettierConfiguration.Package": "/Users/dzerok/Desktop/Workplace/Learning/fe2/app-todo/todo-app-fe/node_modules/prettier",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.Color Scheme Font",
-    "ts.external.directory.path": "/Users/dzerok/Desktop/Workplace/Learning/fe2/project/fe2/pj/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/dzerok/Desktop/Workplace/Learning/fe2/project/fe2/pj/src/assets/images&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/dzerok/Desktop/Workplace/Learning/fe2/app-todo/todo-app-fe/node_modules/prettier&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors.Color Scheme Font&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/dzerok/Desktop/Workplace/Learning/fe2/project/fe2/pj/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/assets/images" />
@@ -111,6 +107,8 @@
       <workItem from="1655867367295" duration="345000" />
       <workItem from="1655920789043" duration="161000" />
       <workItem from="1655951158589" duration="33013000" />
+      <workItem from="1656038445813" duration="3801000" />
+      <workItem from="1656042307608" duration="3314000" />
     </task>
     <servers />
   </component>

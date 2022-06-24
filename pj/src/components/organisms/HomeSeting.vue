@@ -251,7 +251,7 @@ function addFriend(data: User) {
       </div>
     </div>
   </div>
-  <div class="absolute w-full">
+  <div class="absolute w-full top-2">
     <div class="flex justify-end">
       <div class="bg-gray-900/50 w-fit px-5 py-2 rounded-md">
         <coin-rose-gem
