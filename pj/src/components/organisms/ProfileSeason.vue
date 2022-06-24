@@ -27,19 +27,20 @@ import { useUsersStore } from "@/store/users";
 
 export default defineComponent({
   components: {
-    ProfileEvent,
+    ProfileEvent
   },
   props: {
     name: {
       type: String,
-      required: true,
-    },
+      default: "",
+      required: true
+    }
   },
   data() {
     return {
-      user: useUsersStore(),
+      user: useUsersStore()
     };
-  },
+  }
 });
 </script>
 

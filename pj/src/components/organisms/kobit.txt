@@ -1,0 +1,6 @@
+/* // function addCommentElement(postElement: any, key: string|null, text: any,
+// author: any) { throw new Error("Function not implemented."); } function //
+addCommentElement(postElement: any, key: string|null, text: any, author: any) {
+// throw new Error("Function not implemented."); } function //
+postElement(postElement: any, key: string|null, text: any, author: any) { throw
+// new Error("Function not implemented."); } */

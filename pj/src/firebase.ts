@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import { getDatabase, ref, push, onValue, query, equalTo, orderByChild, onChildAdded, update, set, get  } from "firebase/database";
+import { getDatabase, ref, push, onValue, query, equalTo, orderByChild, onChildAdded, update, set, get, limitToLast, remove  } from "firebase/database";
 import firebase from "firebase/compat";
 
 const firebaseConfig = {
@@ -19,4 +19,4 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const database = getDatabase(app);
-export { database, analytics, app, firebase, ref, push, onValue, query, equalTo, orderByChild, onChildAdded, update, set, get  };
+export { database, analytics, app, firebase, ref, push, onValue, query, equalTo, orderByChild, onChildAdded, update, set, get, limitToLast, remove  };
