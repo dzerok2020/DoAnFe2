@@ -126,7 +126,7 @@ async function notifyFriend(idNhan) {
   // await getStatus(db, userStore.getUserInfor?.id);
   console.log(testData.data);
   if (testData.data.id) {
-    const changedata = testData.data.status;
+    const changedata = testData.data.status || [];
     changedata.push({
       id: idNhan,
       stt: "...waiting"

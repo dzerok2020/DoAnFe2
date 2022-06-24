@@ -197,11 +197,11 @@ async function addFriend(id) {
 
 //Deny friend
 function denyFriend(id) {
-  //Xóa thông báo khi đồng ý
+  // //Xóa thông báo khi đồng ý
   const qRemoveNotify = query(
     ref1(db, "notyfi"),
     orderByChild("receive"),
-    equalTo(id)
+    equalTo(userStore.getUserInfor?.id)
   );
 
   //Lấy arr id friend
@@ -214,7 +214,24 @@ function denyFriend(id) {
       // remove(ref1(db), "notyfi/" + key[0]);
     }
   });
-  // getNotifyFriend();
+
+  //xóa id status view
+  const qStatusFriend = ref1(db, "statusFriend/" + id);
+  //Xóa ptu trạng thái bảng statusFriend
+  onValue(qStatusFriend, async (snapshot) => {
+    // console.log(snapshot.val());
+    const arrNotify = snapshot.val().status || [];
+    if (arrNotify) {
+      const xoaIdStatus = arrNotify.filter(
+        (item) => item.id !== userStore.getUserInfor?.id
+      );
+      // console.log(a);
+      set(ref1(db, "statusFriend/" + id), {
+        id: id,
+        status: xoaIdStatus
+      });
+    }
+  });
 }
 
 onMounted(() => {
