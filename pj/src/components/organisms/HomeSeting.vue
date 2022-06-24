@@ -26,16 +26,21 @@ import { useRouter } from "vue-router";
 
 const router = useRouter();
 const isLogin = ref(false);
-
 const friendSearch = ref(false);
 const closeFr = ref(false);
 
-// const keyWord = ref("");
-// const arrFriends = ref([]);
+const keyWord = ref("");
+const arrFriends = ref([]);
 
-// const reactiveUser = reactive({
-//   data: <string[]>[]
-// });
+type User = {
+  id: string;
+  name: string;
+  email: string;
+  token: string;
+}
+const reactiveUser = reactive({
+  data: [] as User[],
+});
 
 let auth: Auth;
 
@@ -68,21 +73,14 @@ const props = defineProps({
   }
 });
 
-function toggleFriend() {
-  if (friendSearch.value) {
-    closeFr.value = true;
+onMounted(() => {
+  auth = getAuth();
+  onAuthStateChanged(auth, (user) => {
+    isLogin.value = !!user;
+  });
+});
 
-    if (closeFr.value) {
-      setTimeout(() => {
-        friendSearch.value = false;
-        closeFr.value = false;
-      }, 1000);
-    }
-  } else {
-    friendSearch.value = true;
-  }
-  // console.log(closeFr.value);
-}
+// methods'
 
 function logout() {
   getAuth(auth.app).signOut();
@@ -90,25 +88,178 @@ function logout() {
   users.logout();
   router.push({ name: props.nameRouterSettings });
 }
+function toggleFriend() {
+  if (friendSearch.value) {
+    closeFr.value = true;
+    setTimeout(() => {
+      friendSearch.value = !friendSearch.value;
+      closeFr.value = false;
+    }, 1000);
+  } else {
+    friendSearch.value = !friendSearch.value;
+  }
+}
 
-onMounted(() => {
-  auth = getAuth();
-  onAuthStateChanged(auth, (user) => {
-    isLogin.value = !!user;
+function searchKey() {
+  var datos = [];
+  const db = getDatabase();
+  // console.log(db);
+  const starCountRef = ref1(db, "users");
+
+  const mostViewedPosts = query(
+    ref1(db, "users"),
+    orderByChild("name"),
+    equalTo(keyWord.value)
+  );
+
+  onValue(mostViewedPosts, (snapshot) => {
+    var arr: any[] = [];
+    var id: any[] = [];
+    snapshot.forEach((element) => {
+      arr.push({
+        name: element.val().name,
+        id: element.val().id
+      });
+    });
+    reactiveUser.data = arr;
   });
-});
+}
+
+// function getAllFriend() {
+//   var datos = [];
+//   const db = getDatabase();
+//   // console.log(db);
+//   const starCountRef = ref1(db, "users");
+
+//   const mostViewedPosts = query(ref1(db, "users"));
+
+//   onValue(mostViewedPosts, (snapshot) => {
+//     var arr: any[] = [];
+//     var id: any[] = [];
+//     snapshot.forEach((element) => {
+//       arr.push({
+//         name: element.val().name,
+//         id: element.val().id
+//       });
+//     });
+//     // reactiveUser.data = arr;
+//     console.log(arr);
+//   });
+// }
+const arr = [];
+
+function addFriend(data: User) {
+  //id người kết bạn
+  // console.log(data);
+
+  const db = getDatabase();
+  const uid = getAuth().currentUser?.uid;
+  // console.log(uid);
+
+  const user = ref1(db, "users/" + uid);
+  const dbRef = ref1(getDatabase());
+
+  var arrFriend: any[] = [];
+
+  get(child(dbRef, "users/" + uid))
+    .then((snapshot) => {
+      if (snapshot.exists()) {
+        arrFriend = snapshot.val() || [];
+        console.log({ data, arrFriend });
+
+        set(ref1(db, "users/" + uid), {
+          email: snapshot.val().email,
+          name: snapshot.val().name,
+          id: snapshot.val().id,
+          token: snapshot.val().token,
+          friend: [...[data], ...[arrFriend]]
+        });
+      } else {
+        console.log("No data available");
+      }
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+
+  get(child(dbRef, "users/" + data.id))
+    .then((snapshot) => {
+      if (snapshot.exists()) {
+        arrFriend = snapshot.val() || [];
+        console.log({ data, arrFriend });
+
+        set(ref1(db, "users/" + data.id), {
+          email: snapshot.val().email,
+          name: snapshot.val().name,
+          id: snapshot.val().id,
+          token: snapshot.val().token,
+          friend: [...[data], ...[arrFriend]]
+        });
+      } else {
+        console.log("No data available");
+      }
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+}
 </script>
 
 <template>
-  <MenuBoxFriend v-if="friendSearch" @toggle="toggleFriend" :close="closeFr" />
-  <div class="absolute w-full">
+  <div class="bg_fullsize" v-if="friendSearch">
+    <div class="box-friend" :class="{ 'close-box-fiend': closeFr }">
+      <div class="box-bg-friend">
+        <v-icon
+          @click="toggleFriend"
+          style="display: block; height: 25px; width: 25px"
+          name="pr-times"
+        />
+        <div class="search-form">
+          <input
+            type="text"
+            class="icon_sreach"
+            v-model="keyWord"
+            placeholder="Tìm kiếm"
+          />
+          <v-icon name="fc-search" @click="searchKey" />
+        </div>
+        <div class="box-form">
+          <div
+            v-for="(i, index) in reactiveUser.data"
+            :key="index"
+            class="box-form-nameicon"
+          >
+            <div>{{ i.name }}</div>
+            <div style="align-items: center; display: flex">
+              <button
+                @click="addFriend(i)"
+                class="friend"
+                style="
+                  border: 1px solid blue;
+                  color: blue;
+                  padding: 2px;
+                  margin-right: 5px;
+                  font-weight: 200;
+                  background: rgba(255, 255, 255, 0.774);
+                "
+              >
+                Add Friend
+              </button>
+              <v-icon name="bi-star-fill" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="absolute w-full top-2">
     <div class="flex justify-end">
       <div class="bg-gray-900/50 w-fit px-5 py-2 rounded-md">
         <coin-rose-gem
-          :label-coin="labelCoin || ''"
-          :label-gem="labelGem || ''"
-          :label-rose="labelRose || ''"
-          :name-router-shop="nameRouterShop || ''"
+          :label-coin="labelCoin"
+          :label-gem="labelGem"
+          :label-rose="labelRose"
+          :name-router-shop="nameRouterShop"
         />
       </div>
       <div
@@ -165,4 +316,129 @@ onMounted(() => {
     </div>
   </div>
 </template>
-<style></style>
+
+<style lang="scss">
+.bg_fullsize {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.377);
+    z-index: -1;
+  }
+
+  .box-friend {
+    position: absolute;
+    width: 300px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: black;
+
+    .box-bg-friend {
+      position: absolute;
+      z-index: 2;
+      inset: 0;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.377);
+        background-image: url(/src/assets/images/bg_fullSize.png);
+        background-position: center;
+        background-size: cover;
+        filter: contrast(0.5);
+        z-index: -1;
+      }
+
+      .search-form {
+        display: flex;
+        align-items: center;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.774);
+
+        input {
+          flex: 1;
+          background: transparent;
+          outline: 0;
+        }
+
+        .icon_sreach {
+          margin: 10px;
+          width: 95%;
+          color: black;
+        }
+      }
+
+      .box-form {
+        justify-content: baseline;
+        width: 100%;
+        height: calc(100vh - 65px);
+        display: block;
+        align-items: center;
+        background: rgba(255, 255, 255, 0.3);
+        overflow-y: auto;
+
+        .box-form-nameicon {
+          padding: 10px;
+          background: rgba(255, 255, 255, 0.3);
+          border: 1px solid;
+          display: flex;
+          width: 100%;
+          height: 40px;
+          justify-content: space-between;
+          align-items: center;
+        }
+      }
+    }
+  }
+}
+
+// .bg_fullsize:hover .box-friend {
+//   animation: animationSiderIn 0.9s forwards;
+// }
+
+.bg_fullsize .box-friend {
+  animation: animationSiderOut 0.9s backwards;
+}
+
+.bg_fullsize .box-friend.close-box-fiend {
+  animation: animationSiderIn 0.9s forwards;
+}
+
+@keyframes animationSiderOut {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes animationSiderIn {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+</style>
+
+function addCommentElement(postElement: any, key: string|null, text: any,
+author: any) { throw new Error("Function not implemented."); } function
+addCommentElement(postElement: any, key: string|null, text: any, author: any) {
+throw new Error("Function not implemented."); } function
+postElement(postElement: any, key: string|null, text: any, author: any) { throw
+new Error("Function not implemented."); }

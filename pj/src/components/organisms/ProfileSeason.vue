@@ -1,5 +1,5 @@
 <template>
-  <div class="w-1/35 absolute inset-y-0 right-0 mt-20">
+  <div class="w-1/35 absolute inset-y-0 right-0 top-20 right-3">
     <profile-event
       label="28"
       src="https://www.wolvesville.com/static/media/rank_03.c0e2cb82.png"

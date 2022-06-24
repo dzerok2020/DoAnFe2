@@ -19,6 +19,7 @@ module.exports = {
         "1/20": "5%",
         "7/100": "7%",
         "1/10": "10%",
+        "25/2": "12.5%",
         "3/20": "15%",
         "3/10": "30%",
         "7/10": "70%",
@@ -28,14 +29,39 @@ module.exports = {
       },
       backgroundImage: {
         "background-Home":
-          "url('https://cdn.wolvesville.com/backgrounds/wolvesville_large_day.wide@3x.png')",
+            "url('https://cdn.wolvesville.com/backgrounds/wolvesville_large_day.wide@3x.png')",
         "background-Play":
-          "url('https://www.wolvesville.com/static/media/background_tile_standard.55b691c5.png')",
+            "url('https://www.wolvesville.com/static/media/background_tile_standard.55b691c5.png')",
         "background-Play-User":
-          "url('https://cdn.wolvesville.com/backgrounds/wolvesville_small_day@3x.png')",
+            "url('https://cdn.wolvesville.com/backgrounds/wolvesville_small_day@3x.png')",
       },
       spacing: {
+        "fix-shop": "2.05rem",
+        "2.5": "0.55rem",
+        "9": "2.25rem",
+        "18": "4.5rem",
+        "19": "4.75rem",
+        "25": "6.25rem",
+        "26": "6.5rem",
+        "100": "25rem",
         "1/35": "calc(33.333333% - 1rem)",
+      },
+      inset: {
+        "fix-shop": "0.6rem",
+        "a20": "-5rem",
+        "2.5": "0.65rem",
+        "3.5": "0.85rem",
+        "4.5": "1.15rem",
+        "5.5": "1.35rem",
+        "10": "2.5rem",
+        "15": "3.75rem",
+        "18": "4.5rem",
+      },
+      colors: {
+        'shop': '#FF3A81',
+      },
+      zIndex: {
+        '1': '1',
       },
     },
   },
