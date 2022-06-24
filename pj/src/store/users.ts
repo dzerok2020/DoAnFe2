@@ -7,6 +7,15 @@ type User = {
   coin: string;
   gem: string;
   flower: string;
+  skin: {
+    hair: string,
+    eyes: string,
+    mouth: string,
+    head: string,
+    clothes: string,
+    body: string,
+    hat: string,
+  };
   token: string;
 }
 

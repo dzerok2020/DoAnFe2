@@ -153,6 +153,15 @@ type User = {
   coin: string;
   gem: string;
   flower: string;
+  skin: {
+    hair: string,
+    eyes: string,
+    mouth: string,
+    head: string,
+    clothes: string,
+    body: string,
+    hat: string,
+  };
   token: string;
 }
 
@@ -201,6 +210,15 @@ export default defineComponent({
                     coin: "0",
                     gem: "0",
                     flower: "0",
+                    skin: {
+                      hair: "https://cdn.wolvesville.com/avatarItems/hair-2.avatar-large@2x.png",
+                      eyes: "https://cdn.wolvesville.com/avatarItems/eyes-standard.avatar-large@2x.png",
+                      mouth: "https://cdn.wolvesville.com/avatarItems/mouth-skin-2.avatar-large@2x.png",
+                      head: "https://cdn.wolvesville.com/avatarItems/head-skin-2.avatar-large@2x.png",
+                      clothes: "https://cdn.wolvesville.com/avatarItems/clothes-77.avatar-large@2x.png",
+                      body: "https://cdn.wolvesville.com/avatarItems/body-skin-2.avatar-large@2x.png",
+                      hat: "",
+                    },
                     token: accessToken,
                   });
                   this.user.data = {
@@ -210,6 +228,15 @@ export default defineComponent({
                     coin: "0",
                     gem: "0",
                     flower: "0",
+                    skin: {
+                      hair: "https://cdn.wolvesville.com/avatarItems/hair-2.avatar-large@2x.png",
+                      eyes: "https://cdn.wolvesville.com/avatarItems/eyes-standard.avatar-large@2x.png",
+                      mouth: "https://cdn.wolvesville.com/avatarItems/mouth-skin-2.avatar-large@2x.png",
+                      head: "https://cdn.wolvesville.com/avatarItems/head-skin-2.avatar-large@2x.png",
+                      clothes: "https://cdn.wolvesville.com/avatarItems/clothes-77.avatar-large@2x.png",
+                      body: "https://cdn.wolvesville.com/avatarItems/body-skin-2.avatar-large@2x.png",
+                      hat: "",
+                    },
                     token: accessToken!,
                   };
                 } else {
@@ -261,6 +288,15 @@ export default defineComponent({
                   coin: "0",
                   gem: "0",
                   flower: "0",
+                  skin: {
+                    hair: "https://cdn.wolvesville.com/avatarItems/hair-2.avatar-large@2x.png",
+                    eyes: "https://cdn.wolvesville.com/avatarItems/eyes-standard.avatar-large@2x.png",
+                    mouth: "https://cdn.wolvesville.com/avatarItems/mouth-skin-2.avatar-large@2x.png",
+                    head: "https://cdn.wolvesville.com/avatarItems/head-skin-2.avatar-large@2x.png",
+                    clothes: "https://cdn.wolvesville.com/avatarItems/clothes-77.avatar-large@2x.png",
+                    body: "https://cdn.wolvesville.com/avatarItems/body-skin-2.avatar-large@2x.png",
+                    hat: "",
+                  },
                   token: token,
                 });
                 this.user.data = {
@@ -270,6 +306,15 @@ export default defineComponent({
                   coin: "0",
                   gem: "0",
                   flower: "0",
+                  skin: {
+                    hair: "https://cdn.wolvesville.com/avatarItems/hair-2.avatar-large@2x.png",
+                    eyes: "https://cdn.wolvesville.com/avatarItems/eyes-standard.avatar-large@2x.png",
+                    mouth: "https://cdn.wolvesville.com/avatarItems/mouth-skin-2.avatar-large@2x.png",
+                    head: "https://cdn.wolvesville.com/avatarItems/head-skin-2.avatar-large@2x.png",
+                    clothes: "https://cdn.wolvesville.com/avatarItems/clothes-77.avatar-large@2x.png",
+                    body: "https://cdn.wolvesville.com/avatarItems/body-skin-2.avatar-large@2x.png",
+                    hat: "",
+                  },
                   token: token!,
                 };
               } else {
@@ -296,24 +341,19 @@ export default defineComponent({
     submit() {
       signInWithEmailAndPassword(getAuth(), this.from.email, this.from.password)
         .then(async (data) => {
-          this.user.setTokens(await data.user.getIdToken());
+          const token = await data.user.getIdToken();
+          this.user.setTokens(token);
+          const dbRef = ref1(getDatabase());
+          await get(child(dbRef, `users/${data.user.uid}`))
+              .then((snapshot) => {
+                if (snapshot.exists()) {
+                  this.user.data = snapshot.val() as User;
+                }
+              })
+              .catch((error) => {
+                console.error(error);
+              });
           await this.$router.push({ name: "home" });
-          // let token = await data.user.getIdToken();
-          // this.user.setTokens(token);
-          // onValue(ref(database, "users"), (snapshot) => {
-          //   snapshot.forEach((child) => {
-          //     if (data.user.uid === child.val().id) {
-          //       const db = getDatabase();
-          //       set(ref(db, 'users/' + child.key), {
-          //         email: child.val().email,
-          //         id: child.val().id,
-          //         name: child.val().name,
-          //         token: token,
-          //       });
-          //       this.user.addUser(child.val());
-          //     }
-          //   });
-          // });
         })
         .catch((error) => {
           console.log(error);

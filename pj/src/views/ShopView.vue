@@ -556,10 +556,12 @@ function pay() {
   if (+user.data.gem >= +tmpShop.data.gem) {
     user.data.gem = String(+user.data.gem - +tmpShop.data.gem);
     const ref = child(dbRef, `inventories/${user.data.id}/hats`);
+    const refUpdate = child(dbRef, `users/${user.data.id}`);
     const data = {
       id: tmpShop.data.id,
       img: tmpShop.data.img,
     };
+    set(refUpdate, user.data);
     push(ref, data);
   } else {
     notify.value = true;

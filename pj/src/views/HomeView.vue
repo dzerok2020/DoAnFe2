@@ -1,20 +1,83 @@
 <template>
   <div id="main" class="bg-sky-500/50 h-screen text-white">
     <div class="bg-background-Home h-full">
-      <div class="pt-2">
-        <home-seting
-            :label-coin="user.data.coin"
-            :label-gem="user.data.gem"
-            :label-rose="user.data.flower"
-            name-router-settings="login"
-        />
-      </div>
+      <home-seting
+          :label-coin="user.data.coin"
+          :label-gem="user.data.gem"
+          :label-rose="user.data.flower"
+          name-router-settings="login"
+      />
       <profile-season :name="user.data.name" />
       <ad-row co-ls="3" class="h-full text-black">
         <ad-row>
           <home-wolvesville />
         </ad-row>
-        <ad-row> a </ad-row>
+        <ad-row>
+          <div
+              class="relative w-full h-full"
+          >
+            <div
+                class="absolute bottom-0 left-1/2 transform -translate-x-1/2 skin w-full"
+            >
+              <div class="w-full h-full relative">
+                <div
+                    class="hair absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20"
+                >
+                  <ad-image
+                      :src="user.data.skin.hair"
+                  />
+                </div>
+                <div
+                    class="eyes absolute bottom-16 left-1/2 transform -translate-x-1/2 z-20"
+                >
+                  <ad-image
+                      class="w-32"
+                      :src="user.data.skin.eyes"
+                  />
+                </div>
+                <div
+                    class="mouth absolute bottom-16 left-1/2 transform -translate-x-1/2 z-20"
+                >
+                  <ad-image
+                      class="w-12"
+                      :src="user.data.skin.mouth"
+                  />
+                </div>
+                <div
+                    class="head absolute bottom-16 left-1/2 transform -translate-x-1/2 z-10"
+                >
+                  <ad-image
+                      class="w-48"
+                      :src="user.data.skin.head"
+                  />
+                </div>
+                <div
+                    class="clothes absolute bottom-0 left-1/2 transform -translate-x-1/2 z-10"
+                >
+                  <ad-image
+                      :src="user.data.skin.clothes"
+                  />
+                </div>
+                <div
+                    class="body absolute bottom-0 left-1/2 transform -translate-x-1/2 z-0"
+                >
+                  <ad-image
+                      class="scale-95"
+                      :src="user.data.skin.body"
+                  />
+                </div>
+                <div
+                    class="hat absolute bottom-32 left-1/2 transform -translate-x-1/2 z-20"
+                >
+                  <ad-image
+                      class="w-96"
+                      :src="user.data.skin.hat"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </ad-row>
       </ad-row>
     </div>
   </div>
@@ -25,16 +88,19 @@ import AdRow from "@/components/atoms/AdRow.vue";
 import HomeWolvesville from "@/components/organisms/HomeWolvesville.vue";
 import ProfileSeason from "@/components/organisms/ProfileSeason.vue";
 import HomeSeting from "@/components/organisms/HomeSeting.vue";
+import AdImage from "@/components/atoms/AdImage.vue";
+
 import { defineComponent } from "vue";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { getAuth } from "firebase/auth";
 import { useUsersStore } from "@/store/users";
-import { database, onValue, push, ref } from "@/firebase";
+import { ref } from "@/firebase";
 import { child, get, getDatabase, set } from "firebase/database";
 
 
 export default defineComponent({
   components: {
     AdRow,
+    AdImage,
     HomeWolvesville,
     ProfileSeason,
     HomeSeting
@@ -92,30 +158,6 @@ export default defineComponent({
           console.error(error);
         });
     }
-
-    // getMessage() {
-    //   if (this.user.token) {
-    //     const db = getDatabase();
-    //     console.log('home: ' + this.user.token);
-    //     onValue(ref(database, `play-${this.user.room}`), (snapshot) => {
-    //       if (snapshot.size > 1) {
-    //         snapshot.forEach((child) => {
-    //           console.log(this.user.data.id)
-    //           if (this.user.data.id === child.val().id) {
-    //             set(ref(db, snapshot.key + "/" + child.key), {
-    //             });
-    //             this.user.room = -1;
-    //             snapshot.exists()
-    //           }
-    //         });
-    //       } else {
-    //         console.log('asds')
-    //         // set(ref(db, snapshot.key + "/"), {
-    //         // });
-    //       }
-    //     });
-    //   }
-    // },
   }
 });
 </script>

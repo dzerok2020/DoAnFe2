@@ -42,7 +42,7 @@
                   >
                     <ad-image
                       class="scale-150"
-                      src="https://cdn.wolvesville.com/avatarItems/hair-2.avatar-large@2x.png"
+                      :src="user.data.skin.hair"
                     />
                   </div>
                   <div
@@ -50,7 +50,7 @@
                   >
                     <ad-image
                       class="w-12 scale-150"
-                      src="https://cdn.wolvesville.com/avatarItems/eyes-standard.avatar-large@2x.png"
+                      :src="user.data.skin.eyes"
                     />
                   </div>
                   <div
@@ -58,7 +58,7 @@
                   >
                     <ad-image
                       class="w-5 scale-150"
-                      src="https://cdn.wolvesville.com/avatarItems/mouth-skin-2.avatar-large@2x.png"
+                      :src="user.data.skin.mouth"
                     />
                   </div>
                   <div
@@ -66,7 +66,7 @@
                   >
                     <ad-image
                       class="w-20 scale-150"
-                      src="https://cdn.wolvesville.com/avatarItems/head-skin-2.avatar-large@2x.png"
+                      :src="user.data.skin.head"
                     />
                   </div>
                   <div
@@ -74,7 +74,7 @@
                   >
                     <ad-image
                       class="scale-150"
-                      src="https://cdn.wolvesville.com/avatarItems/clothes-77.avatar-large@2x.png"
+                      :src="user.data.skin.clothes"
                     />
                   </div>
                   <div
@@ -82,15 +82,15 @@
                   >
                     <ad-image
                       class="w-20 scale-150"
-                      src="https://cdn.wolvesville.com/avatarItems/body-skin-2.avatar-large@2x.png"
+                      :src="user.data.skin.body"
                     />
                   </div>
                   <div
-                    class="hat absolute bottom-12 left-1/2 transform -translate-x-1/2 z-20"
+                    class="hat absolute bottom-26 left-1/2 transform -translate-x-1/2 z-20"
                   >
                     <ad-image
                       class="scale-125"
-                      src="https://cdn.wolvesville.com/avatarItems/hat-1.avatar-large@2x.png"
+                      :src="user.data.skin.hat"
                     />
                   </div>
                 </div>
@@ -207,7 +207,8 @@
                 <div class="scroll overflow-scroll h-full">
                   <div class="grid grid-cols-8 gap-4 px-4">
                     <div
-                      class="basis-25/2 bg-gray-400/50 border-2 border-sky-900 h-full w-full rounded-md relative"
+                      @click="noneHat"
+                      class="basis-25/2 bg-gray-400/50 border-2 border-sky-900 h-full w-full rounded-md cursor-pointer relative"
                     >
                       <div
                         class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
@@ -216,8 +217,9 @@
                       </div>
                     </div>
                     <div
+                      class="basis-25/2 bg-gray-400/50 border-2 border-sky-900 rounded-md p-4 cursor-pointer"
                       v-for="i in hats.data"
-                      class="basis-25/2 bg-gray-400/50 border-2 border-sky-900 rounded-md p-4"
+                      @click="changeHat(i.img)"
                     >
                       <ad-image classes="h-12 mx-auto" :src="i.img" />
                     </div>
@@ -280,7 +282,7 @@ import AdImage from "@/components/atoms/AdImage.vue";
 import AdText from "@/components/atoms/AdText.vue";
 import TextImage from "@/components/molecules/TextImage.vue";
 import { useUsersStore } from "@/store/users";
-import { child, get, getDatabase } from "firebase/database";
+import { child, get, getDatabase, set } from "firebase/database";
 import { ref1 } from "@/import";
 import { reactive } from "vue";
 
@@ -303,6 +305,16 @@ get(child(dbRef, `inventories/${user.data.id}/hats`))
   .catch((error) => {
     console.error(error);
   });
+const refUpdateSkin = child(dbRef, `users/${user.data.id}/skin`);
+function noneHat() {
+  user.data.skin.hat = "";
+  set(refUpdateSkin, user.data.skin);
+}
+
+function changeHat(hat: string) {
+  user.data.skin.hat = hat;
+  set(refUpdateSkin, user.data.skin);
+}
 </script>
 
 <style scoped></style>

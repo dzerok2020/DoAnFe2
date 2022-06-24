@@ -139,6 +139,18 @@ export default defineComponent({
               id: data.user.uid,
               name: this.from.name,
               email: this.from.email,
+              coin: "0",
+              gem: "0",
+              flower: "0",
+              skin: {
+                hair: "https://cdn.wolvesville.com/avatarItems/hair-2.avatar-large@2x.png",
+                eyes: "https://cdn.wolvesville.com/avatarItems/eyes-standard.avatar-large@2x.png",
+                mouth: "https://cdn.wolvesville.com/avatarItems/mouth-skin-2.avatar-large@2x.png",
+                head: "https://cdn.wolvesville.com/avatarItems/head-skin-2.avatar-large@2x.png",
+                clothes: "https://cdn.wolvesville.com/avatarItems/clothes-77.avatar-large@2x.png",
+                body: "https://cdn.wolvesville.com/avatarItems/body-skin-2.avatar-large@2x.png",
+                hat: "",
+              },
               token: ""
             });
             this.$router.push({ name: "login" });
